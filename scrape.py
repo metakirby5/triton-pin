@@ -36,6 +36,7 @@ def chunk(l, size):
 
 def main():
   driver = webdriver.PhantomJS(PHANTOMJS_BIN)
+  driver.implicitly_wait(TIMEOUT)
 
   driver.get(TRITONLINK_URL)
 
@@ -55,7 +56,7 @@ def main():
 
   try:
     WebDriverWait(driver, TIMEOUT).until(
-      lambda driver : driver.find_element_by_css_selector("#%s, .%s" %
+      lambda driver: driver.find_element_by_css_selector("#%s, .%s" %
         (CLASSES_CONTAINER_ID, LOGIN_ERROR_CLASS)
       )
     )
