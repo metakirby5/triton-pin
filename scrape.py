@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from bs4 import BeautifulSoup
 from getpass import getpass
-from collections import defaultdict
+from json import dumps
 
 PHANTOMJS_BIN = './node_modules/phantomjs/bin/phantomjs'
 TRITONLINK_URL = 'http://mytritonlink.ucsd.edu/'
@@ -34,7 +34,7 @@ class TritonLinkException(Exception):
 def chunk(l, size):
   return [l[i:i+size] for i in xrange(0, len(l), size)]
 
-def main():
+def get_classes(username, password):
   driver = webdriver.PhantomJS(PHANTOMJS_BIN)
   driver.implicitly_wait(TIMEOUT)
 
@@ -42,10 +42,6 @@ def main():
 
   # Get redirected to login page
   login_url = driver.current_url
-
-  # Get creds
-  username = raw_input('User ID / PID: ')
-  password = getpass('Password / PAC: ')
 
   # Send to elements
   e_username = driver.find_element_by_name(USERNAME_NAME)
@@ -83,8 +79,8 @@ def main():
   by_weekday = zip(*chunk(bs_classes, len(WEEK_DAYS)))
 
   # Proccess each td
-  classes = defaultdict(list)
-  for day_name, day in zip(WEEK_DAYS, by_weekday):
+  classes = []
+  for class_day, day in zip(WEEK_DAYS, by_weekday):
     for clazz in day:
       try:
         class_info = clazz.find_all(class_=CLASSES_CLASS)[0]
@@ -93,8 +89,21 @@ def main():
         continue
 
       class_time, class_name, class_loc = list(class_info.stripped_strings)
-      print('%s | %s | %s | %s' %
-        (day_name, class_time, class_name, class_loc)
-      )
+      classes.append({
+        'name': class_name,
+        'day': class_day,
+        'time': class_time,
+        'location': class_loc,
+      })
 
-main()
+  return classes
+
+def main():
+  # Get creds
+  username = raw_input('User ID / PID: ')
+  password = getpass('Password / PAC: ')
+
+  print(dumps(get_classes(username, password), sort_keys=True, indent=2))
+
+if __name__ == '__main__':
+  main()
