@@ -92,6 +92,8 @@ def main():
         continue
 
       class_time, class_name, class_loc = list(class_info.stripped_strings)
-      print('%s | %s | %s' % (class_time, class_name, class_loc))
+      print('%s | %s | %s | %s' %
+        (day_name, class_time, class_name, class_loc)
+      )
 
 main()
