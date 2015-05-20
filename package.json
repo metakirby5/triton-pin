@@ -1,0 +1,15 @@
+{
+  "name": "triton-scrape",
+  "version": "0.0.0",
+  "description": "Experimental repo for scraping TritonLink.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sudo-woodo/triton-scrape.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sudo-woodo/triton-scrape/issues"
+  },
+  "dependencies": {
+    "phantomjs": "~1.9.16"
+  }
+}
