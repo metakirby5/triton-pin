@@ -1,8 +1,8 @@
 # triton-scrape
 Experimental repo for scraping TritonLink.
 
-Setup:
+## Setup:
 
-- pip install -r requirements.txt
-- npm install
-- ./scrape.py
+- `pip install -r requirements.txt`
+- `npm install`
+- `./scrape.py`
