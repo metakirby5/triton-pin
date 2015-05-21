@@ -1,5 +1,5 @@
-# triton-scrape
-Experimental repo for scraping TritonLink.
+# triton-pin
+A service to pin your UCSD schedule to your Pebble Timeline.
 
 ## Setup:
 
@@ -9,7 +9,7 @@ If you don't have these already, install them:
 - [node / npm](https://nodejs.org/download/)
 - [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/install.html)
 
-From `triton-scrape` directory:
+From `triton-pin` directory:
 
 - `mkvirtualenv triton-scrape`
 - `setvirtualenvproject`
