@@ -1,13 +1,13 @@
 {
-  "name": "triton-pin",
+  "name": "triton-pin-py",
   "version": "0.0.1",
   "description": "A service to pin your UCSD schedule to your Pebble Timeline.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/metakirby5/triton-pin.git"
+    "url": "git://github.com/metakirby5/triton-pin-py.git"
   },
   "bugs": {
-    "url": "https://github.com/metakirby5/triton-pin/issues"
+    "url": "https://github.com/metakirby5/triton-pin-py/issues"
   },
   "dependencies": {
     "phantomjs": "~1.9.16"
