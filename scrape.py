@@ -91,7 +91,8 @@ def get_classes(username, password):
             except IndexError:
                 continue
 
-            class_time, class_name, class_loc = list(class_info.stripped_strings)
+            class_time, class_name, class_loc = list(
+                class_info.stripped_strings)
             classes.append({
                 'name': class_name,
                 'day': class_day,
@@ -108,6 +109,7 @@ def main():
     password = getpass('Password / PAC: ')
 
     print dumps(get_classes(username, password), sort_keys=True, indent=2)
+
 
 if __name__ == '__main__':
     main()

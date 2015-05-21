@@ -1,15 +1,16 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 from rq import Queue
-from worker import CONN
+from worker import conn
 from tasks import pin
 
-SCHED = BlockingScheduler()
-QUEUE = Queue(connection=CONN)
+sched = BlockingScheduler()
+q = Queue(connection=conn)
 
 
-@SCHED.scheduled_job('cron', day_of_week='sun', timezone='UTC')
+@sched.scheduled_job('cron', day_of_week='sun', timezone='UTC')
 def weekly_pin():
-    QUEUE.enqueue(pin)
+    q.enqueue(pin)
+
 
 if __name__ == '__main__':
-    SCHED.start()
+    sched.start()
