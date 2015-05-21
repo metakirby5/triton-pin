@@ -1,10 +1,10 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 from rq import Queue
-from .worker import conn
-from .tasks import pin
+from worker import CONN
+from tasks import pin
 
 SCHED = BlockingScheduler()
-QUEUE = Queue(connection=conn)
+QUEUE = Queue(connection=CONN)
 
 # @SCHED.scheduled_job('cron', day_of_week='sun', timezone='UTC')
 @SCHED.scheduled_job('interval', minutes=10)
