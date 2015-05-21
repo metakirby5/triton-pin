@@ -1,15 +1,18 @@
 {
-  "name": "triton-scrape",
-  "version": "0.0.0",
-  "description": "Experimental repo for scraping TritonLink.",
+  "name": "triton-pin",
+  "version": "0.0.1",
+  "description": "A service to pin your UCSD schedule to your Pebble Timeline.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/sudo-woodo/triton-scrape.git"
+    "url": "git://github.com/metakirby5/triton-pin.git"
   },
   "bugs": {
-    "url": "https://github.com/sudo-woodo/triton-scrape/issues"
+    "url": "https://github.com/metakirby5/triton-pin/issues"
   },
   "dependencies": {
     "phantomjs": "~1.9.16"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }

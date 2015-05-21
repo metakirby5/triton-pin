@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -31,8 +30,8 @@ class AuthenticationException(Exception):
 class TritonLinkException(Exception):
   pass
 
-def chunk(l, size):
-  return [l[i:i+size] for i in xrange(0, len(l), size)]
+def chunk(iterable, size):
+  return [iterable[i:i+size] for i in xrange(0, len(iterable), size)]
 
 def get_classes(username, password):
   driver = webdriver.PhantomJS(PHANTOMJS_BIN)
@@ -103,7 +102,7 @@ def main():
   username = raw_input('User ID / PID: ')
   password = getpass('Password / PAC: ')
 
-  print(dumps(get_classes(username, password), sort_keys=True, indent=2))
+  print dumps(get_classes(username, password), sort_keys=True, indent=2)
 
 if __name__ == '__main__':
   main()
