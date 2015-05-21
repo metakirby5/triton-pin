@@ -7,8 +7,7 @@ SCHED = BlockingScheduler()
 QUEUE = Queue(connection=CONN)
 
 
-# @SCHED.scheduled_job('cron', day_of_week='sun', timezone='UTC')
-@SCHED.scheduled_job('interval', seconds=5)
+@SCHED.scheduled_job('cron', day_of_week='sun', timezone='UTC')
 def weekly_pin():
     QUEUE.enqueue(pin)
 
