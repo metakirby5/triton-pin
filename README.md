@@ -1,6 +1,5 @@
 # triton-pin
 A service to pin your UCSD schedule to your Pebble Timeline.
-**NOT FINISHED - deprecated in favor of node version**
 
 ## Setup:
 
