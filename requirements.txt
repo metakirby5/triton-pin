@@ -4,7 +4,7 @@ click==4.0
 futures==3.0.2
 ipython==8.10.0
 pytz==2015.4
-redis==2.10.3
+redis==4.5.3
 rq==0.5.2
 selenium==2.45.0
 six==1.9.0
